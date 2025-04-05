@@ -5,33 +5,33 @@ import path from 'node:path'
 
 type Network = 'testnet' | 'mainnet'
 
-// Configuration.
-const CONFIG_FILE_PATH = './.env.local'
-const SITE_PATH = './dist'
-const NUMBER_OF_EPOCHS = 1 // "max" means 53 epochs or 2 years currently.
-const BUY_WAL_TOKEN_BEFORE_RUN = false
-const FORCE_UPDATE_EVERYTHING = false
 const WALRUS_SITE_OBJECT_ID_VARIABLE_NAME_BASE = 'WALRUS_SITE_OBJECT_ID'
-// ~ Configuration.
 
-export const deploy = async (sourceFolder: string, network: Network) => {
-  const configFilePathFull = path.join(process.cwd(), CONFIG_FILE_PATH)
-  const sitePathFull = path.join(process.cwd(), SITE_PATH)
+export const deploy = async (
+  sourceFolder: string,
+  network: Network,
+  siteObjectIdFile: string,
+  epochs: string,
+  buyWalBeforeRun: boolean,
+  forceUpdate: boolean
+) => {
+  if (buyWalBeforeRun) {
+    buyWalTokenIfPossible(network)
+  }
+
+  const configFilePathFull = path.join(process.cwd(), siteObjectIdFile)
+  const sitePathFull = path.join(process.cwd(), sourceFolder)
 
   await createFileIfNecessary(configFilePathFull)
 
   let siteObjectId = await readSiteObjectId(configFilePathFull, network)
-
-  if (BUY_WAL_TOKEN_BEFORE_RUN) {
-    buyWalTokenIfPossible(network)
-  }
 
   // If the site has not yet been published (no site object ID in the config),
   // then publish the site to Walrus Sites.
   if (siteObjectId == null) {
     console.log('Publishing the app to Walrus Sites...')
     const { stdout, stderr } = await exec(
-      `${getWalrusSitesCli(network)} publish --epochs ${NUMBER_OF_EPOCHS} ${sitePathFull}`
+      `${getWalrusSitesCli(network)} publish --epochs ${epochs} ${sitePathFull}`
     )
 
     // Get the site object ID from the publish command output.
@@ -77,7 +77,7 @@ export const deploy = async (sourceFolder: string, network: Network) => {
 
   console.log('Updating the app on Walrus Sites...')
   execSync(
-    `${getWalrusSitesCli(network)} update ${FORCE_UPDATE_EVERYTHING ? '--force' : ''} --epochs ${NUMBER_OF_EPOCHS} ${sitePathFull} ${siteObjectId}`,
+    `${getWalrusSitesCli(network)} update ${forceUpdate ? '--force' : ''} --epochs ${epochs} ${sitePathFull} ${siteObjectId}`,
     { stdio: 'inherit' }
   )
 }

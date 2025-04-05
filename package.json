@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "cli": "pnpm build && cp ./package.json ./dist && node ./dist/index.js deploy -n testnet ./dist",
+    "cli": "pnpm build && cp ./package.json ./dist && node ./dist/index.js ./dist -n testnet -o ./.env.local -e 1 -b -f",
     "format": "prettier --write './src/**/*.{js,ts}'",
     "prepublishOnly": "pnpm build"
   },
