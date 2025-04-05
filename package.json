@@ -1,6 +1,6 @@
 {
   "name": "walrus-sites-deploy",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.1",
   "description": "Walrus Sites Deploy",
   "main": "index.js",
   "type": "module",
