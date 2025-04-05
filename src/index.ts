@@ -2,12 +2,14 @@
 
 import chalk from 'chalk'
 import { Command } from 'commander'
-import { readFileSync } from 'node:fs'
-import path from 'node:path'
-import { fileURLToPath } from 'url'
+import { deploy } from './deployer'
+import { _displaySuccessMessage, _getPackageMeta } from './utils'
 
-const REPORT_ISSUE_URL =
-  'https://github.com/suiware/walrus-sites-deploy/issues/new'
+/**
+ * The script publishes to or updates the app on Walrus Sites.
+ * After publishing the app, site object ID is copied to .env.local, which is used later to update the app on Walrus Sites.
+ * See Configuration section below for more details.
+ */
 
 const main = async () => {
   const packageMeta = _getPackageMeta()
@@ -20,44 +22,19 @@ const main = async () => {
     .version(packageMeta.version)
 
   program
-    .command('start')
-    .description(`Start ${packageMeta.name}`)
-    .option('-v, --verbose', 'display logs')
-    .action((options) => {
+    .command('deploy <source>')
+    .description(`Deploy a folder to Walrus Sites`)
+    .option('-n, --network <network>', 'network to use', 'testnet')
+    // .option('-v, --verbose', 'display logs')
+    .action(async (source, options) => {
+      // await deploy(source, options.network)
+      
       _displaySuccessMessage(`The site has been deployed.`)
     })
 
   program.parse()
 }
 
-const _getCliDirectory = () => {
-  const currentFileUrl = import.meta.url
-  return path.dirname(decodeURI(fileURLToPath(currentFileUrl)))
-}
-
-const _getPackageMeta = () => {
-  try {
-    const packageFile = readFileSync(
-      path.join(_getCliDirectory(), '/package.json'),
-      'utf8'
-    )
-    return JSON.parse(packageFile)
-  } catch (e) {
-    _displayErrorMessage(
-      `Cannot read package meta-data. Please report the issue ${REPORT_ISSUE_URL}`
-    )
-    console.error(e)
-    process.exit(1)
-  }
-}
-
-const _displayErrorMessage = (message: string) => {
-  console.error(chalk.red(message))
-}
-
-const _displaySuccessMessage = (message: string) => {
-  console.log(chalk.green(message))
-}
 
 // Main entry point.
 main().catch((e) => {

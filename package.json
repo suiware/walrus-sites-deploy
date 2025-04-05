@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
+    "cli": "pnpm build && cp ./package.json ./dist && node ./dist/index.js deploy -n testnet ./dist",
     "format": "prettier --write './src/**/*.{js,ts}'",
     "prepublishOnly": "pnpm build"
   },
@@ -35,7 +36,8 @@
   ],
   "dependencies": {
     "chalk": "^5.4.1",
-    "commander": "^13.1.0"
+    "commander": "^13.1.0",
+    "env-file-rw": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
