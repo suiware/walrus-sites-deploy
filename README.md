@@ -9,12 +9,12 @@
 ## Usage
 
 ```bash
-pnpx @suiware/walrus-sites-deploy  ./dist
-pnpx @suiware/walrus-sites-deploy  ./dist -n testnet
-pnpx @suiware/walrus-sites-deploy  ./dist -n testnet -o ./.env.local
-pnpx @suiware/walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1
-pnpx @suiware/walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1 -b
-pnpx @suiware/walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1 -b -f
+pnpx walrus-sites-deploy  ./dist
+pnpx walrus-sites-deploy  ./dist -n testnet
+pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local
+pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1
+pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1 -b
+pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1 -b -f
 ```
 
 ## Used by
