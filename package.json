@@ -1,5 +1,5 @@
 {
-  "name": "walrus-sites-deploy",
+  "name": "@suiware/walrus-sites-deploy",
   "version": "0.1.0-alpha.1",
   "description": "Walrus Sites Deploy",
   "main": "index.js",
