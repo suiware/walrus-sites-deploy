@@ -1,0 +1,47 @@
+{
+  "name": "walrus-sites-deploy",
+  "version": "0.1.0",
+  "description": "Walrus Sites Deploy",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "walrus-sites-deploy": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "format": "prettier --write './src/**/*.{js,ts}'",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "cli",
+    "sui",
+    "walrus",
+    "walrus-sites-deploy",
+    "suibase",
+    "suiware"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suiware/walrus-sites-deploy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/suiware/walrus-sites-deploy/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.5.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  }
+}
