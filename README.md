@@ -16,3 +16,7 @@ pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1
 pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1 -b
 pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1 -b -f
 ```
+
+## Used by
+
+
