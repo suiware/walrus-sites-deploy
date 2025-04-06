@@ -32,12 +32,12 @@ const main = async () => {
     )
     .option(
       '-e, --epochs [epochs]',
-      'number of epochs to store the files for',
+      'number of epochs to store the files for. "max" means 53 epochs or (2 years).',
       '1'
-    ) // "max" means 53 epochs or 2 years currently.
+    )
     .option(
       '-b, --buy-wal-before-run [true]',
-      'buy WAL token before running the script',
+      'buy WAL tokens before running the script. currently 0.5 WAL.',
     )
     .option(
       '-f, --force-update [true]',
