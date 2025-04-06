@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "walrus-sites-deploy": "./dist/index.js"
+    "walrus-sites-deploy": "./index.js"
   },
   "scripts": {
     "build": "tsup",
