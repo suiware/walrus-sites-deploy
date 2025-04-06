@@ -2,7 +2,7 @@
 
 **The project is under development, so avoid using it in production until further notice.**
 
-Walrus Sites deployment script which publishes/updates a folder to Walrus Sites.
+Walrus Sites deployment script which publishes/updates a folder to/on Walrus Sites.
 
 ## Features
 
