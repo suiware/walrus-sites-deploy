@@ -2,7 +2,7 @@
 
 Walrus Sites deployment script which publishes/updates a folder on Walrus Sites.
 
-Uses the tools provided by Suibase, so no Walrus configs need to be added manually.
+Uses the tools provided by [Suibase](https://suibase.io), so no Walrus configs need to be added manually.
 
 ## Features
 
@@ -13,7 +13,7 @@ Uses the tools provided by Suibase, so no Walrus configs need to be added manual
 
 ## Prerequisites
 
-- [Suibase](https://suibase.io)
+- [Suibase](https://suibase.io/how-to/install.html)
 
 ## Usage
 
