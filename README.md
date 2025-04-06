@@ -9,14 +9,25 @@
 ## Usage
 
 ```bash
-pnpx walrus-sites-deploy  ./dist
-pnpx walrus-sites-deploy  ./dist -n testnet
-pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local
-pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1
-pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1 -b
-pnpx walrus-sites-deploy  ./dist -n testnet -o ./.env.local -e 1 -b -f
+pnpx walrus-sites-deploy ./dist
+pnpx walrus-sites-deploy ./dist -n testnet
+pnpx walrus-sites-deploy ./dist -n testnet -o ./.env.local
+pnpx walrus-sites-deploy ./dist -n testnet -o ./.env.local -e 1
+pnpx walrus-sites-deploy ./dist -n testnet -o ./.env.local -e 1 -b
+pnpx walrus-sites-deploy ./dist -n testnet -o ./.env.local -e 1 -b -f
 ```
+
+## Parameters
+
+| Parameter | Shorthand | Description | Default Value |
+|-----------|-----------|-------------|---------------|
+| source | - | The folder to deploy to Walrus Sites | Required |
+| --network | -n | Network to use (testnet or mainnet) | `testnet` |
+| --site-object-id-file | -o | Path to the config file where the site object ID is stored | `./.env.local` |
+| --epochs | -e | Number of epochs to store the files for. "max" means 53 epochs or 2 years. | `1` |
+| --buy-wal-before-run | -b | Buy WAL token before running the script | `false` |
+| --force-update | -f | Force update | `false` |
 
 ## Used by
 
-
+- [Sui dApp Starter](https://sui-dapp-starter.dev/)

@@ -24,10 +24,10 @@ const main = async () => {
   program
     .command('deploy <source>', { isDefault: true })
     .description(`Deploy a folder to Walrus Sites`)
-    .option('-n, --network [network]', 'network to use', 'testnet')
+    .option('-n, --network [network]', 'network to use (testnet or mainnet)', 'testnet')
     .option(
       '-o, --site-object-id-file [siteObjectIdFile]',
-      'path to the config file',
+      'path to the config file where the site object ID is stored',
       './.env.local'
     )
     .option(
@@ -41,7 +41,7 @@ const main = async () => {
     )
     .option(
       '-f, --force-update [true]',
-      'force update everything',
+      'force update',
     )
 
     // .option('-v, --verbose', 'display logs')
