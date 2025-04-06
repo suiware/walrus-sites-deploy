@@ -12,7 +12,8 @@
     "dev": "tsup --watch",
     "cli": "pnpm build && cp ./package.json ./dist && node ./dist/index.js ./dist -n testnet -o ./.env.local -e 1 -b -f",
     "format": "prettier --write './src/**/*.{js,ts}'",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "pnpm build",
+    "prepare": "husky"
   },
   "keywords": [
     "cli",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "tsup": "^8.4.0",
     "typescript": "^5.8.3"
