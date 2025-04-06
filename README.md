@@ -7,7 +7,7 @@ Walrus Sites deployment script which publishes/updates a folder to/on Walrus Sit
 ## Features
 
 - Store the published site object ID in an environment file.
-- Set the number of epoch for which the site is stored.
+- Set the number of epochs for which the site is stored.
 - Can swap SUI for 0.5 WAL before run to fund the deployment if necessary.
 - Can override already deployed files if necessary.
 
