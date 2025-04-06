@@ -4,6 +4,8 @@
 
 Walrus Sites deployment script which publishes/updates a folder to/on Walrus Sites.
 
+Uses the tools provided by Suibase, so no Walrus configs need to be added manually.
+
 ## Features
 
 - Store the published site object ID in an environment file.
@@ -16,6 +18,33 @@ Walrus Sites deployment script which publishes/updates a folder to/on Walrus Sit
 - [Suibase](https://suibase.io)
 
 ## Usage
+
+Make sure you started testnet or mainnet locally:
+```bash
+testnet start
+# or
+mainnet start
+```
+
+To get current deployer address:
+
+```bash
+tsui client active-address
+# or
+msui client active-address
+```
+
+To get current deployer address balance:
+
+```bash
+tsui client balance
+# or
+msui client balance
+```
+
+_Refer to the [Suibase docs](https://suibase.io/walrus.html) for more commands._
+
+Finally, to deploy the site:
 
 ```bash
 pnpx walrus-sites-deploy ./dist
@@ -40,3 +69,7 @@ pnpx walrus-sites-deploy ./dist -n testnet -o ./.env.local -e 1 -b -f
 ## Used by
 
 - [Sui dApp Starter](https://sui-dapp-starter.dev/)
+
+## Links
+
+- [Suibase Walrus Documentation](https://suibase.io/walrus.html)
