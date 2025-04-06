@@ -1,6 +1,6 @@
 # Walrus Sites Deploy CLI
 
-Walrus Sites deployment script which publishes/updates a folder to/on Walrus Sites.
+Walrus Sites deployment script which publishes/updates a folder on Walrus Sites.
 
 Uses the tools provided by Suibase, so no Walrus configs need to be added manually.
 
