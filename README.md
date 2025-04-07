@@ -1,6 +1,6 @@
 # Walrus Sites Deploy CLI
 
-Deploys a folder to Walrus Sites.
+Deploys a folder to Walrus Sites seamlessly.
 
 Uses CLI tools provided by [Suibase](https://suibase.io).
 
