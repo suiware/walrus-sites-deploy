@@ -1,10 +1,10 @@
 {
   "name": "walrus-sites-deploy",
-  "version": "0.1.0-beta.5",
+  "version": "0.1.0-beta.6",
   "description": "Walrus Sites Deploy",
+  "type": "commonjs",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "type": "module",
   "bin": {
     "walrus-sites-deploy": "./dist/index.js"
   },
