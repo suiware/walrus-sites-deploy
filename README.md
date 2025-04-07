@@ -2,7 +2,7 @@
 
 Deploys a folder to Walrus Sites.
 
-Under the hood, it uses CLI tools provided by [Suibase](https://suibase.io).
+Uses CLI tools provided by [Suibase](https://suibase.io).
 
 ## Unique Features
 
