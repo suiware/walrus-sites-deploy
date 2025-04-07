@@ -23,7 +23,7 @@ const main = async () => {
 
   program
     .command('deploy [source]', { isDefault: true })
-    .description(`Deploy a folder to Walrus Sites`)
+    .description(`Deploys a folder to Walrus Sites`)
     .option(
       '-n, --network [network]',
       'network to use (testnet or mainnet)',
