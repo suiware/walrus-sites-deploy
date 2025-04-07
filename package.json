@@ -1,9 +1,18 @@
 {
   "name": "walrus-sites-deploy",
-  "version": "0.1.0-beta.2",
+  "version": "0.1.0-beta.3",
   "description": "Walrus Sites Deploy",
-  "main": "dist/index.js",
+  "main": "index.js",
+  "types": "index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "bin": {
     "walrus-sites-deploy": "./dist/index.js"
   },
