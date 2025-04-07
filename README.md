@@ -2,7 +2,7 @@
 
 Walrus Sites deployment script which publishes a folder to Walrus Sites.
 
-Under the hood, it uses the CLI tools provided by [Suibase](https://suibase.io).
+Under the hood, it uses CLI tools provided by [Suibase](https://suibase.io).
 
 ## Unique Features
 
