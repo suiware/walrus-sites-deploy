@@ -6,8 +6,8 @@ Uses the tools provided by [Suibase](https://suibase.io), so no Walrus configs n
 
 ## Features
 
-- Store the published site object ID in an environment file.
-- Set the number of epochs for which the site is stored.
+- Stores the published site object ID in an environment file.
+- Allows setting the number of epochs for which the site is stored.
 - Can swap SUI for 0.5 WAL to fund the deployment if necessary.
 - Can override already deployed files if necessary.
 
