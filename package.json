@@ -1,25 +1,17 @@
 {
   "name": "walrus-sites-deploy",
-  "version": "0.1.0-beta.3",
+  "version": "0.1.0-beta.4",
   "description": "Walrus Sites Deploy",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
-    }
-  },
   "bin": {
     "walrus-sites-deploy": "./dist/index.js"
   },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "cli": "pnpm build && cp ./package.json ./dist && node ./dist/index.js ./dist -n testnet -o ./.env.local -e 1 -b -f",
+    "cli": "pnpm build && node ./dist/index.js ./dist -n testnet -o ./.env.local -e 1 -b -f",
     "format": "prettier --write './src/**/*.{js,ts}'",
     "prepublishOnly": "pnpm build"
   },
