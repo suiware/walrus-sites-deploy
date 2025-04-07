@@ -45,6 +45,7 @@ _Refer to the [Suibase docs](https://suibase.io/walrus.html) for more commands._
 Finally, to deploy the site:
 
 ```bash
+pnpx walrus-sites-deploy
 pnpx walrus-sites-deploy ./dist
 pnpx walrus-sites-deploy ./dist -n testnet
 pnpx walrus-sites-deploy ./dist -n testnet -o ./.env.local
@@ -57,7 +58,7 @@ pnpx walrus-sites-deploy ./dist -n testnet -o ./.env.local -e 1 -b -f
 
 | Parameter | Shorthand | Description | Default Value |
 |-----------|-----------|-------------|---------------|
-| source | - | The folder to deploy to Walrus Sites | Required |
+| source | - | The folder to deploy to Walrus Sites | './dist' |
 | --network | -n | Network to use (testnet or mainnet) | `testnet` |
 | --site-object-id-file | -o | Path to the config file where the site object ID is stored. If this env file already has site object ID, the site is going to be updated on Walrus Sites. If not, once the site is published the first time, the site object ID gets written to the env file. The other environment variables in the file are preserved. | `./.env.local` |
 | --epochs | -e | Number of epochs to store the files for. "max" means 53 epochs (2 years) | `1` |

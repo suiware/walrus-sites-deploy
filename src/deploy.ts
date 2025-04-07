@@ -20,7 +20,7 @@ export const deploy = async (
   }
 
   const configFilePathFull = path.join(process.cwd(), siteObjectIdFile)
-  const sitePathFull = path.join(process.cwd(), sourceFolder)
+  const sitePathFull = path.join(process.cwd(), sourceFolder || './dist') // Default source folder is ./dist.
 
   await createFileIfNecessary(configFilePathFull)
 

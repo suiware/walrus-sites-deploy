@@ -22,9 +22,13 @@ const main = async () => {
     .version(packageMeta.version)
 
   program
-    .command('deploy <source>', { isDefault: true })
+    .command('deploy [source]', { isDefault: true })
     .description(`Deploy a folder to Walrus Sites`)
-    .option('-n, --network [network]', 'network to use (testnet or mainnet)', 'testnet')
+    .option(
+      '-n, --network [network]',
+      'network to use (testnet or mainnet)',
+      'testnet'
+    )
     .option(
       '-o, --site-object-id-file [siteObjectIdFile]',
       'path to the config file where the site object ID is stored',
@@ -37,12 +41,9 @@ const main = async () => {
     )
     .option(
       '-b, --buy-wal-before-run [true]',
-      'buy WAL tokens before running the script. currently 0.5 WAL.',
+      'buy WAL tokens before running the script. currently 0.5 WAL.'
     )
-    .option(
-      '-f, --force-update [true]',
-      'force update',
-    )
+    .option('-f, --force-update [true]', 'force update')
 
     // .option('-v, --verbose', 'display logs')
     .action(async (source, options) => {
