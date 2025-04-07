@@ -2,14 +2,16 @@
 
 Walrus Sites deployment script which publishes a folder to Walrus Sites.
 
-Uses the tools provided by [Suibase](https://suibase.io), so no additional configuration needed.
+Under the hood, it uses the CLI tools provided by [Suibase](https://suibase.io).
 
-## Features
+## Unique Features
 
+Why it's better than native Walrus `site-builder` script:
+
+- No additional configuration needed (thanks to Suibase).
 - Stores the published site object ID in an environment file.
-- Allows setting the number of epochs for which the site is stored.
-- Can swap SUI for 0.5 WAL to fund the deployment if necessary.
-- Can override already deployed files if necessary.
+- Allows to swap SUI for WAL to fund the deployment if necessary.
+- Allows to override already deployed files if necessary.
 
 ## Prerequisites
 
