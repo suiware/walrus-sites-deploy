@@ -16,6 +16,7 @@ Why it's better than the native Walrus `site-builder` script:
 ## Prerequisites
 
 - [Suibase](https://suibase.io/how-to/install.html)
+- [Node.js](https://nodejs.org/en/download)
 
 ## Usage
 
