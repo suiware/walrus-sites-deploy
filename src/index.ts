@@ -1,15 +1,8 @@
 #!/usr/bin/env node
 
-import chalk from 'chalk'
 import { Command } from 'commander'
 import { deploy } from './deploy'
-import { displaySuccessMessage, getPackageMeta } from './utils'
-
-/**
- * The script publishes to or updates the app on Walrus Sites.
- * After publishing the app, site object ID is copied to .env.local, which is used later to update the app on Walrus Sites.
- * See Configuration section below for more details.
- */
+import { getPackageMeta } from './utils'
 
 const main = async () => {
   const packageMeta = getPackageMeta()
@@ -55,8 +48,6 @@ const main = async () => {
         options?.buyWalBeforeRun || false,
         options?.forceUpdate || false
       )
-
-      displaySuccessMessage(`The site has been deployed.`)
     })
 
   program.parse()
@@ -64,5 +55,5 @@ const main = async () => {
 
 // Main entry point.
 main().catch((e) => {
-  console.error(chalk.red(e))
+  console.error(e)
 })

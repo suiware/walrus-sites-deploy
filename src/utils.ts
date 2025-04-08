@@ -25,7 +25,12 @@ export const getPackageMeta = () => {
 export const displayErrorMessage = (message: string) => {
   console.error(chalk.red(message))
 }
-
+export const displayWarningMessage = (message: string) => {
+  console.warn(chalk.yellow(message))
+}
 export const displaySuccessMessage = (message: string) => {
   console.log(chalk.green(message))
+}
+export const displayMessage = (message: string) => {
+  console.log(message)
 }

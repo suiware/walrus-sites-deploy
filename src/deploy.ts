@@ -2,6 +2,12 @@ import EnvFileWriter from 'env-file-rw'
 import { exec, execSync } from 'node:child_process'
 import { promises } from 'node:fs'
 import path from 'node:path'
+import {
+  displayErrorMessage,
+  displayMessage,
+  displaySuccessMessage,
+  displayWarningMessage,
+} from './utils'
 
 type Network = 'testnet' | 'mainnet'
 
@@ -29,7 +35,7 @@ export const deploy = async (
   // If the site has not yet been published (no site object ID in the config),
   // then publish the site to Walrus Sites.
   if (siteObjectId == null) {
-    console.log('Publishing the app to Walrus Sites...')
+    displayMessage('Publishing the site to Walrus Sites...')
     const { stdout, stderr } = await exec(
       `${getWalrusSitesCli(network)} publish --epochs ${epochs} ${sitePathFull}`
     )
@@ -50,9 +56,12 @@ export const deploy = async (
 
       // Save site object ID to the config file.
       await saveSiteObjectId(configFilePathFull, network, siteObjectId!)
+
+      displaySuccessMessage(`The site has been published successfully.`)
     })
 
     stderr!.on('data', async (error) => {
+      displayErrorMessage(`Cannot publish the site at the moment.`)
       console.error(error)
       // Do not exit if it's a warning.
       // @todo: Find a better way to catch warnings, e.g. by severity level or error code.
@@ -66,20 +75,21 @@ export const deploy = async (
   }
 
   if (siteObjectId == null) {
-    console.error(
+    displayErrorMessage(
       '~ The script could not find the site object ID in the output.'
     )
-    console.error(
+    displayErrorMessage(
       '~ If you see it, please add WALRUS_SITE_OBJECT_ID=[site object ID from the output] into packages/frontend/.env.local manually.'
     )
     return
   }
 
-  console.log('Updating the app on Walrus Sites...')
+  displayMessage('Updating the site on Walrus Sites...')
   execSync(
     `${getWalrusSitesCli(network)} update ${forceUpdate ? '--force' : ''} --epochs ${epochs} ${sitePathFull} ${siteObjectId}`,
     { stdio: 'inherit' }
   )
+  displaySuccessMessage(`The site has been updated successfully.`)
 }
 
 /**
@@ -143,13 +153,16 @@ const setEnvVar = async (envFilePath: string, name: string, value: string) => {
 }
 
 const buyWalTokenIfPossible = (network: Network) => {
+  displayMessage('Buying WAL coins...')
   try {
-    console.log('Buying WAL coins...')
     execSync(`${getWalrusCli(network)} get-wal`, {
       stdio: 'inherit',
     })
-  } catch (e) {
-    console.warn(e)
+  } catch (e: any) {
+    displayWarningMessage(
+      (e?.message || 'Cannot buy WAL coins at the moment.') +
+        ' Continue the deployment...'
+    )
   }
 }
 

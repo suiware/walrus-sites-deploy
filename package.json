@@ -1,6 +1,6 @@
 {
   "name": "walrus-sites-deploy",
-  "version": "0.1.0-beta.8",
+  "version": "0.1.0-beta.9",
   "description": "Better Walrus Sites Deploy",
   "type": "commonjs",
   "main": "./dist/index.js",
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "cli": "pnpm build && pnpx walrus-sites-deploy -n testnet -o ./.env.local -e 1 -b -f",
+    "cli": "pnpm build && node ./dist/index -n testnet -o ./.env.local -e 1 -b -f",
     "format": "prettier --write './src/**/*.{js,ts}'",
     "prepublishOnly": "pnpm build"
   },
