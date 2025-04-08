@@ -19,6 +19,7 @@
     "cli",
     "sui",
     "walrus",
+    "walrus-sites",
     "walrus-sites-deploy",
     "suibase",
     "suiware"

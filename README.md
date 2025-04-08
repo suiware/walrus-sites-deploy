@@ -6,7 +6,7 @@ Uses CLI tools provided by [Suibase](https://suibase.io).
 
 ## Unique Features
 
-Why it's better than native Walrus `site-builder` script:
+Why it's better than the native Walrus `site-builder` script:
 
 - No additional configuration needed (thanks to Suibase).
 - Stores the published site object ID in an environment file.
