@@ -1,6 +1,6 @@
 {
   "name": "walrus-sites-deploy",
-  "version": "0.1.0-beta.9",
+  "version": "0.1.0",
   "description": "Better Walrus Sites Deploy",
   "type": "commonjs",
   "main": "./dist/index.js",
